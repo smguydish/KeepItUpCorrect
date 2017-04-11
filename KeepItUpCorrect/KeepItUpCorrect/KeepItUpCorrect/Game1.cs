@@ -19,7 +19,7 @@ namespace KeepItUpCorrect
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameStates { TitleScreen, Playing, GameOver };
+        enum GameStates { TitleScreen, Playing, GameOver, Pause };
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
@@ -96,7 +96,16 @@ namespace KeepItUpCorrect
                     break;
 
                 case GameStates.Playing:
+                    if(kb.IsKeyDown(Keys.P))
+                    {
+                        gameState = GameStates.Pause;
+                    }
+                    break;
 
+                case GameStates.Pause:
+
+                    if (kb.IsKeyDown(Keys.P))
+                        gameState = GameStates.Playing;
                     break;
 
                 case GameStates.GameOver:
