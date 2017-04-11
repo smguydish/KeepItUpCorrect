@@ -19,6 +19,13 @@ namespace KeepItUpCorrect
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        enum GameStates { TitleScreen, Playing, GameOver };
+        GameStates gameState = GameStates.TitleScreen;
+        Texture2D titleScreen;
+        Texture2D spriteSheet;
+        Texture2D Background;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -47,6 +54,9 @@ namespace KeepItUpCorrect
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
+            spriteSheet = Content.Load<Texture2D>(@"Textures\SpriteSheet");
+            Background = Content.Load<Texture2D>(@"Textures\Background");
             // TODO: use this.Content to load your game content here
         }
 
@@ -71,6 +81,17 @@ namespace KeepItUpCorrect
                 this.Exit();
 
             // TODO: Add your update logic here
+            switch (gameState)
+            {
+                case GameStates.TitleScreen:
+                    break;
+
+                case GameStates.Playing:
+                    break;
+
+                case GameStates.GameOver:
+                    break;
+            }
 
             base.Update(gameTime);
         }
@@ -84,6 +105,13 @@ namespace KeepItUpCorrect
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            if(gameState == GameStates.TitleScreen)
+            {
+                spriteBatch.Draw(titleScreen,
+                    new Rectangle(0, 0, this.Window.ClientBounds.Width,
+                        this.Window.ClientBounds.Height),
+                        Color.White);
+            }
 
             base.Draw(gameTime);
         }
