@@ -36,3 +36,4 @@ C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\
 C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\obj\x86\Debug\KeepItUpCorrect.exe
 C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\obj\x86\Debug\KeepItUpCorrect.pdb
+C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Fonts\Pericles14.xnb

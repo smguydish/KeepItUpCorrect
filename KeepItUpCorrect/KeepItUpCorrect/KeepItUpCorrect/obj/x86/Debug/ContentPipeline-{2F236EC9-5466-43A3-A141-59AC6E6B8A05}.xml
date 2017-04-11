@@ -26,7 +26,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\TitleScreen.xnb</Output>
-      <Time>2017-04-11T18:21:29.3870019-04:00</Time>
+      <Time>2017-04-11T18:45:17.3812985-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Pericles14.spritefont</Source>
+      <Name>Fonts\Pericles14</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yusuf\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Fonts\Pericles14.xnb</Output>
+      <Time>2017-04-07T16:51:21.3024037-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
