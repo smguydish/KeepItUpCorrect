@@ -22,11 +22,12 @@ namespace KeepItUpCorrect
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D Background;
-        int clicks = 0;
-        SpriteFont pericles14;
+
+        int clicks = 0;  //Score
+        
 
         public Vector2 scoreLocation = new Vector2(20, 10);
-
+        SpriteFont pericles14;
 
 
         public Game1()
