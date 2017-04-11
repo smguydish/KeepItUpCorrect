@@ -33,6 +33,7 @@ namespace KeepItUpCorrect
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
         }
 
