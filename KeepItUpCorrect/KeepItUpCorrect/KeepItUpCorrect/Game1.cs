@@ -24,6 +24,7 @@ namespace KeepItUpCorrect
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D Background;
+        KeyboardState kb = Keyboard.GetState();
 
 
         public Game1()
@@ -84,9 +85,15 @@ namespace KeepItUpCorrect
             switch (gameState)
             {
                 case GameStates.TitleScreen:
+                    if (kb.IsKeyDown(Keys.Space))
+                    {
+                        gameState = GameStates.Playing;
+                       
+                    }
                     break;
 
                 case GameStates.Playing:
+
                     break;
 
                 case GameStates.GameOver:
@@ -114,6 +121,17 @@ namespace KeepItUpCorrect
                         this.Window.ClientBounds.Height),
                         Color.White);
             }
+
+            if (gameState == GameStates.Playing)
+            {
+                spriteBatch.Draw(Background,
+                    new Rectangle(0, 0, this.Window.ClientBounds.Width,
+                        this.Window.ClientBounds.Height),
+                        Color.White);
+            }
+                
+
+
 
             spriteBatch.End();
 
