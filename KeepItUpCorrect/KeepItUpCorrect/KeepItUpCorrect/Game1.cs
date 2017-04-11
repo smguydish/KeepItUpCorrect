@@ -105,13 +105,17 @@ namespace KeepItUpCorrect
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            if(gameState == GameStates.TitleScreen)
+            spriteBatch.Begin();
+
+            if (gameState == GameStates.TitleScreen)
             {
                 spriteBatch.Draw(titleScreen,
                     new Rectangle(0, 0, this.Window.ClientBounds.Width,
                         this.Window.ClientBounds.Height),
                         Color.White);
             }
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
