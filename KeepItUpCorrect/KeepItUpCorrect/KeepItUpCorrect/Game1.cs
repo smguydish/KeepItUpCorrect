@@ -24,7 +24,7 @@ namespace KeepItUpCorrect
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D Background;
-        KeyboardState kb = Keyboard.GetState();
+        
 
 
         public Game1()
@@ -81,6 +81,9 @@ namespace KeepItUpCorrect
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
+            //NOTE: KeyboardState MUST be in the update method in order to work.  Not sure why.  Ask Tanczos later.
+            KeyboardState kb = Keyboard.GetState();
             // TODO: Add your update logic here
             switch (gameState)
             {
