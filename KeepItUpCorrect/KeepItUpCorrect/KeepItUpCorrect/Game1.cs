@@ -69,7 +69,7 @@ namespace KeepItUpCorrect
             gameOver = Content.Load<Texture2D>(@"Textures\GameOver");
 
             ball = new Sprite(
-                new Vector2(this.Window.ClientBounds.Width/2, 0),
+                new Vector2(this.Window.ClientBounds.Width/2, this.Window.ClientBounds.Height/2),
                 spriteSheet,
                 new Rectangle(0,0,200,200),
                 Vector2.Zero);
@@ -124,6 +124,8 @@ namespace KeepItUpCorrect
                         clicked = true;
                         ball.Velocity = new Vector2(0, -1500);
 
+                       
+
                         Vector2 vc = ball.Velocity;
                         float speed = vc.Length();
                         vc.Normalize();
@@ -136,8 +138,9 @@ namespace KeepItUpCorrect
                         clicked = false;
 
 
-                    if (ball.Location.Y >= 650)
+                    if (ball.Location.Y >= 650  || ball.Location.X <=0)
                     {
+                        clicks = 0;
                         gameState = GameStates.GameOver;
                     }
 
@@ -161,6 +164,16 @@ namespace KeepItUpCorrect
                     break;
 
                 case GameStates.GameOver:
+                    if(ms.LeftButton == ButtonState.Pressed && !clicked)
+                    {
+                        gameState = GameStates.Playing;
+
+                        ball = new Sprite(
+                            new Vector2(this.Window.ClientBounds.Width / 2, this.Window.ClientBounds.Height / 2),
+                            spriteSheet,
+                            new Rectangle(0, 0, 200, 200),
+                            Vector2.Zero);
+                    }
                     break;
             }
 
