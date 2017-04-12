@@ -122,7 +122,13 @@ namespace KeepItUpCorrect
                     if (ms.LeftButton == ButtonState.Pressed && !clicked)
                     {
                         clicked = true;
-                        ball.Velocity = new Vector2(0, -1500);
+                        Vector2 offset = (new Vector2(ms.X, ms.Y) - ball.Center);
+
+                        offset.Y = Math.Abs(offset.Y);
+                        offset.Normalize();
+                        offset = new Vector2(-1500) + offset*-100;
+
+                        ball.Velocity = offset;
 
                        
 
