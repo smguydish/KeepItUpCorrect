@@ -22,6 +22,10 @@ namespace KeepItUpCorrect
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D Background;
+        bool isAlGay = true;
+        bool clicked = false;
+
+        Sprite ball;
 
         int clicks = 0;  //Score
         
@@ -34,6 +38,8 @@ namespace KeepItUpCorrect
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferWidth = 1024;
+            graphics.PreferredBackBufferHeight = 768;
             Content.RootDirectory = "Content";
         }
 
@@ -45,6 +51,7 @@ namespace KeepItUpCorrect
         {
             // TODO: Add your initialization logic here
 
+            this.IsMouseVisible = true;
             base.Initialize();
         }
         /// LoadContent will be called once per game and is the place to load
@@ -57,6 +64,12 @@ namespace KeepItUpCorrect
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\SpriteSheet");
             Background = Content.Load<Texture2D>(@"Textures\Background");
+
+            ball = new Sprite(
+                new Vector2(this.Window.ClientBounds.Width/2, 0),
+                spriteSheet,
+                new Rectangle(0,0,128,128),
+                Vector2.Zero);
 
 
 
@@ -79,6 +92,10 @@ namespace KeepItUpCorrect
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            MouseState ms = Mouse.GetState();
+            Vector2 mousePoint = new Vector2(ms.X, ms.Y);
+
+
 
             //NOTE: KeyboardState MUST be in the update method in order to work.  Not sure why.  Ask Tanczos later.
             KeyboardState kb = Keyboard.GetState();
@@ -98,7 +115,35 @@ namespace KeepItUpCorrect
                     {
                         gameState = GameStates.Pause;
                     }
-                    break;
+
+                    if (ms.LeftButton == ButtonState.Pressed && !clicked)
+                    {
+                        clicked = true;
+                        ball.Velocity = new Vector2(0, -1500);
+
+                        Vector2 vc = ball.Velocity;
+                        float speed = vc.Length();
+                        vc.Normalize();
+                        vc *= Math.Min(speed, 750f);
+                        ball.Velocity = vc;
+                    }
+                    else if (ms.LeftButton == ButtonState.Released)
+                        clicked = false;
+
+
+
+                    /*
+                    if ((ms.LeftButton == ButtonState.Pressed) &&
+             (currentSquare.Contains(ms.X, ms.Y)))
+                    {
+                        playerScore++;
+                        timeRemaining = 0.0f;
+                        TimePerSquare = TimePerSquare - 0.05f;
+                    }*/
+                    ball.Velocity += new Vector2(0, 15f);
+
+                    ball.Update(gameTime);
+                        break;
 
                 case GameStates.Pause:
 
@@ -137,7 +182,7 @@ namespace KeepItUpCorrect
                         this.Window.ClientBounds.Height),
                         Color.White);
 
-                
+                ball.Draw(spriteBatch);
                 
                     spriteBatch.DrawString(
                         pericles14,
