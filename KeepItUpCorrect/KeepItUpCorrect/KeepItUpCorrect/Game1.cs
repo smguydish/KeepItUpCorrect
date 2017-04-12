@@ -22,6 +22,8 @@ namespace KeepItUpCorrect
         Texture2D titleScreen;
         Texture2D spriteSheet;
         Texture2D Background;
+        Texture2D gameOver;
+
         bool isAlGay = true;
         bool clicked = false;
 
@@ -64,11 +66,12 @@ namespace KeepItUpCorrect
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\SpriteSheet");
             Background = Content.Load<Texture2D>(@"Textures\Background");
+            gameOver = Content.Load<Texture2D>(@"Textures\GameOver");
 
             ball = new Sprite(
                 new Vector2(this.Window.ClientBounds.Width/2, 0),
                 spriteSheet,
-                new Rectangle(0,0,128,128),
+                new Rectangle(0,0,200,200),
                 Vector2.Zero);
 
 
@@ -126,11 +129,17 @@ namespace KeepItUpCorrect
                         vc.Normalize();
                         vc *= Math.Min(speed, 750f);
                         ball.Velocity = vc;
+
+                        clicks ++;
                     }
                     else if (ms.LeftButton == ButtonState.Released)
                         clicked = false;
 
 
+                    if (ball.Location.Y >= 650)
+                    {
+                        gameState = GameStates.GameOver;
+                    }
 
                     /*
                     if ((ms.LeftButton == ButtonState.Pressed) &&
@@ -199,7 +208,10 @@ namespace KeepItUpCorrect
 
             if(gameState == GameStates.GameOver)
             {
-                //code here loser
+                spriteBatch.Draw(gameOver,
+                    new Rectangle(0, 0, this.Window.ClientBounds.Width,
+                        this.Window.ClientBounds.Height),
+                        Color.White);
             }
 
 

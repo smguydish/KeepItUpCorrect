@@ -37,6 +37,15 @@
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Fonts\Pericles14.xnb</Output>
       <Time>2017-04-12T11:54:39.5820118-04:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\GameOver.png</Source>
+      <Name>Textures\GameOver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\GameOver.xnb</Output>
+      <Time>2017-04-12T12:49:02.3440371-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{2F236EC9-5466-43A3-A141-59AC6E6B8A05}</ContentProjectGUID>

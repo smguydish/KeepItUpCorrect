@@ -2,3 +2,4 @@ Content\Textures\Background.xnb
 Content\Textures\SpriteSheet.xnb
 Content\Textures\TitleScreen.xnb
 Content\Fonts\Pericles14.xnb
+Content\Textures\GameOver.xnb
