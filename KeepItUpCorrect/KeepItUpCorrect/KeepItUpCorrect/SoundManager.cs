@@ -15,6 +15,7 @@ namespace KeepItUpCorrect
     class SoundManager
     {
         private static SoundEffect jump;
+        private static SoundEffect loser;
 
 
         public static void Initialize(ContentManager content)
@@ -42,9 +43,16 @@ namespace KeepItUpCorrect
             }
         }
 
-        public static void playGameOver()
+        public static void playLoser()
         {
+            try
+            {
 
+            }
+            catch
+            {
+
+            }
         }
 
 
