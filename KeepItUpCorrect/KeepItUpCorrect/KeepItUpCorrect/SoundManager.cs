@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Diagnostics;
 
 namespace KeepItUpCorrect
 {
@@ -18,13 +19,33 @@ namespace KeepItUpCorrect
 
         public static void Initialize(ContentManager content)
         {
-            jump = content.Load<SoundEffect>(@"Sounds\jump");
+            try
+            {
+                jump = content.Load<SoundEffect>(@"Sounds\jump");
+            }
+
+            catch
+            {
+                Debug.Write("SoundManager Initialization Failed");
+            }
         }
         public static void playJump()
         {
-            jump.Play();
+            try
+            {
+                jump.Play();
+            }
+
+            catch
+            {
+                Debug.Write("jump failed");
+            }
         }
 
+        public static void playGameOver()
+        {
+
+        }
 
 
 

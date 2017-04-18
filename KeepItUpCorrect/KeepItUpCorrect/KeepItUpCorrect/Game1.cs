@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Diagnostics;
 
 namespace KeepItUpCorrect
 {
@@ -25,7 +26,11 @@ namespace KeepItUpCorrect
         Texture2D gameOver;
 
         bool isAlGay = true;
-        bool clicked = false;
+        bool isAlStupid = true;
+        bool isAlCool = false;
+
+
+        bool clicked = false, pdown = false;
 
         Sprite ball;
 
@@ -60,6 +65,8 @@ namespace KeepItUpCorrect
         /// all of your content.
         protected override void LoadContent()
         {
+            SoundManager.Initialize(this.Content);
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -71,7 +78,7 @@ namespace KeepItUpCorrect
             ball = new Sprite(
                 new Vector2(this.Window.ClientBounds.Width/2, this.Window.ClientBounds.Height/2),
                 spriteSheet,
-                new Rectangle(0,0,200,200),
+                new Rectangle(0,0,190,150),
                 Vector2.Zero);
 
 
@@ -114,31 +121,46 @@ namespace KeepItUpCorrect
                     break;
 
                 case GameStates.Playing:
-                    if(kb.IsKeyDown(Keys.P))
+
+                    if (kb.IsKeyDown(Keys.P) && !pdown)
                     {
                         gameState = GameStates.Pause;
+                        pdown = true;
+                    }
+                    else if (kb.IsKeyUp(Keys.P))
+                    {
+                        pdown = false;
                     }
 
                     if (ms.LeftButton == ButtonState.Pressed && !clicked)
                     {
+                        
+                        Vector2 click = new Vector2(ms.X, ms.Y);
+                        Vector2 offset = (ball.Center - click);
+
                         clicked = true;
-                        Vector2 offset = (new Vector2(ms.X, ms.Y) - ball.Center);
 
-                        offset.Y = Math.Abs(offset.Y);
-                        offset.Normalize();
-                        offset = new Vector2(-1500) + offset*-100;
+                        if (Vector2.Distance(click, ball.Center) < ball.BoundingBoxRect.Height / 2)
+                        {
+                            SoundManager.playJump();
 
-                        ball.Velocity = offset;
+                            offset.Y = -Math.Abs(offset.Y);
+                            offset.X = MathHelper.Clamp(offset.X, -5, 5);
+                            offset.Normalize();
+                            offset *= 800; // f offset = new Vector2(-1500) + offset*-100;
 
-                       
+                            ball.Velocity = offset;
 
-                        Vector2 vc = ball.Velocity;
-                        float speed = vc.Length();
-                        vc.Normalize();
-                        vc *= Math.Min(speed, 750f);
-                        ball.Velocity = vc;
 
-                        clicks ++;
+
+                            Vector2 vc = ball.Velocity;
+                            float speed = vc.Length();
+                            vc.Normalize();
+                            vc *= Math.Min(speed, 800f);
+                            ball.Velocity = vc;
+
+                            clicks++;
+                        }
                     }
                     else if (ms.LeftButton == ButtonState.Released)
                         clicked = false;
@@ -158,15 +180,23 @@ namespace KeepItUpCorrect
                         timeRemaining = 0.0f;
                         TimePerSquare = TimePerSquare - 0.05f;
                     }*/
-                    ball.Velocity += new Vector2(0, 15f);
+                    ball.Velocity += new Vector2(0, 20f);
 
                     ball.Update(gameTime);
                         break;
 
                 case GameStates.Pause:
 
-                    if (kb.IsKeyDown(Keys.P))
+                    if (kb.IsKeyDown(Keys.P) && !pdown)
+                    {
                         gameState = GameStates.Playing;
+                        pdown = true;
+                    }
+                    else if (kb.IsKeyUp(Keys.P))
+                    {
+                        pdown = false;
+                    }
+
                     break;
 
                 case GameStates.GameOver:
@@ -180,6 +210,9 @@ namespace KeepItUpCorrect
                             new Rectangle(0, 0, 200, 200),
                             Vector2.Zero);
                     }
+                    else if (ms.LeftButton == ButtonState.Released)
+                        clicked = false;
+
                     break;
             }
 

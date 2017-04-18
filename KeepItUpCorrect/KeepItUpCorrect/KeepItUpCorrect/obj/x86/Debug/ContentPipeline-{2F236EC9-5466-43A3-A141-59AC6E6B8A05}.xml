@@ -46,6 +46,15 @@
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\GameOver.xnb</Output>
       <Time>2017-04-18T12:05:58.3606104-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sounds\jump.wav</Source>
+      <Name>Sounds\jump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Sounds\jump.xnb</Output>
+      <Time>2017-04-18T12:25:37.1706035-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{2F236EC9-5466-43A3-A141-59AC6E6B8A05}</ContentProjectGUID>
