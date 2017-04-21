@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\Background.xnb</Output>
-      <Time>2017-04-20T12:06:20.8695271-04:00</Time>
+      <Time>2017-04-21T10:37:49.0464039-04:00</Time>
     </Item>
     <Item>
       <Source>Textures\SpriteSheet.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\SpriteSheet.xnb</Output>
-      <Time>2017-04-20T12:06:20.8735311-04:00</Time>
+      <Time>2017-04-21T10:37:49.0504027-04:00</Time>
     </Item>
     <Item>
       <Source>Textures\TitleScreen.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\TitleScreen.xnb</Output>
-      <Time>2017-04-20T12:06:20.9062912-04:00</Time>
+      <Time>2017-04-21T10:37:49.0694822-04:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Pericles14.spritefont</Source>
@@ -35,7 +35,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Fonts\Pericles14.xnb</Output>
-      <Time>2017-04-20T12:06:20.8126906-04:00</Time>
+      <Time>2017-04-21T10:37:48.9833472-04:00</Time>
     </Item>
     <Item>
       <Source>Textures\GameOver.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Textures\GameOver.xnb</Output>
-      <Time>2017-04-20T12:06:20.8715421-04:00</Time>
+      <Time>2017-04-21T10:37:49.0484112-04:00</Time>
     </Item>
     <Item>
       <Source>Sounds\jump.wav</Source>
@@ -53,7 +53,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\KeepItUpCorrect\bin\x86\Debug\Content\Sounds\jump.xnb</Output>
-      <Time>2017-04-20T12:06:20.8427122-04:00</Time>
+      <Time>2017-04-21T10:37:49.012374-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
